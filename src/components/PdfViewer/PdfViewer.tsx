@@ -1,153 +1,8 @@
-{
-  /*import { Document, Page, pdfjs } from "react-pdf";
-import { useEffect, useMemo, useState } from "react";
-import "react-pdf/dist/esm/Page/AnnotationLayer.css";
-import "react-pdf/dist/esm/Page/TextLayer.css";
-
-pdfjs.GlobalWorkerOptions.workerSrc = "/pdf.worker.mjs";
-
-type Props = {
-  file?: File;
-};
-
-export const PdfViewer = ({ file }: Props) => {
-  const [numPages, setNumPages] = useState<number>();
-  const [pageNumber, setPageNumber] = useState(1);
-  const [bookmarks, setBookmarks] = useState<number[]>([]);
-
-  const fileUrl = useMemo(() => {
-    return file ? URL.createObjectURL(file) : "";
-  }, [file]);
-
-  const bookId = useMemo(() => {
-    return file ? `${file.name}_${file.size}` : "";
-  }, [file]);
-
-  const STORAGE_PAGE = `reader-progress:${bookId}`;
-  const STORAGE_BOOKMARKS = `reader-bookmarks:${bookId}`;
-
-  useEffect(() => {
-    if (!file || !file.name || !file.size) return;
-
-    const keys = Object.keys(localStorage).filter((key) =>
-      key.includes(`reader-progress:${file.name}_`)
-    );
-    const exactMatch = `reader-progress:${bookId}`;
-
-    if (keys.length > 0 && !keys.includes(exactMatch)) {
-      keys.forEach((k) => localStorage.removeItem(k));
-      localStorage.removeItem(`reader-bookmarks:${file.name}`);
-    }
-
-    const saved = localStorage.getItem(STORAGE_PAGE);
-    if (saved) {
-      const savedPage = parseInt(saved, 10);
-      if (!isNaN(savedPage)) setPageNumber(savedPage);
-    }
-
-    const savedBookmarks = localStorage.getItem(STORAGE_BOOKMARKS);
-    if (savedBookmarks) {
-      try {
-        setBookmarks(JSON.parse(savedBookmarks));
-      } catch (error) {
-        console.warn("Помилка читання закладок:", error);
-      }
-    }
-
-    localStorage.setItem("reader-last-book", bookId);
-  }, [file, bookId, STORAGE_PAGE, STORAGE_BOOKMARKS]);
-
-  useEffect(() => {
-    if (bookId) {
-      localStorage.setItem(STORAGE_PAGE, pageNumber.toString());
-    }
-  }, [pageNumber, bookId, STORAGE_PAGE]);
-
-  const addBookmark = () => {
-    if (!bookmarks.includes(pageNumber)) {
-      const updated = [...bookmarks, pageNumber].sort((a, b) => a - b);
-      setBookmarks(updated);
-      localStorage.setItem(STORAGE_BOOKMARKS, JSON.stringify(updated));
-    }
-  };
-
-  const removeBookmark = (pageToRemove: number) => {
-    const updated = bookmarks.filter((p) => p !== pageToRemove);
-    setBookmarks(updated);
-    localStorage.setItem(STORAGE_BOOKMARKS, JSON.stringify(updated));
-  };
-
-  const onDocumentLoadSuccess = ({ numPages }: { numPages: number }) => {
-    setNumPages(numPages);
-  };
-
-  if (!file) {
-    return (
-      <div style={{ padding: "2rem", color: "darkred" }}>
-        ⚠️ Файл не передано або не вибрано
-      </div>
-    );
-  }
-
-  return (
-    <div>
-      <Document file={fileUrl} onLoadSuccess={onDocumentLoadSuccess}>
-        <Page pageNumber={pageNumber} />
-      </Document>
-
-      <div style={{ marginTop: "10px" }}>
-        <button onClick={() => setPageNumber((p) => Math.max(p - 1, 1))}>
-          ←
-        </button>
-        <span style={{ margin: "0 10px" }}>
-          Сторінка {pageNumber} з {numPages}
-        </span>
-        <button
-          onClick={() => setPageNumber((p) => Math.min(p + 1, numPages || 1))}
-        >
-          →
-        </button>
-        <button onClick={addBookmark} style={{ marginLeft: "20px" }}>
-          ➕ В закладки
-        </button>
-      </div>
-
-      {bookmarks.length > 0 && (
-        <div style={{ marginTop: "20px" }}>
-          <strong>Закладки:</strong>
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "10px",
-              marginTop: "5px",
-            }}
-          >
-            {bookmarks.map((page) => (
-              <div
-                key={page}
-                style={{ display: "flex", alignItems: "center", gap: "5px" }}
-              >
-                <button onClick={() => setPageNumber(page)}>{page}</button>
-                <button
-                  onClick={() => removeBookmark(page)}
-                  style={{ color: "red" }}
-                >
-                  ✕
-                </button>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-    </div>
-  );
-};*/
-}
 import { Document, Page, pdfjs } from "react-pdf";
 import { useEffect, useMemo, useState } from "react";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
+import styles from "../PdfViewer/PdfViewer.module.css";
 
 pdfjs.GlobalWorkerOptions.workerSrc = "/pdf.worker.mjs";
 
@@ -230,8 +85,24 @@ export const PdfViewer = ({ file }: Props) => {
         >
           →
         </button>
-        <button onClick={addBookmark} style={{ marginLeft: "20px" }}>
-          ➕ Add current page to bookmarks
+        <button
+          className={styles.iconsBottom}
+          onClick={addBookmark}
+          style={{ marginLeft: "20px" }}
+        >
+          <svg
+            className={styles.iconBookmark}
+            width="20"
+            height="27"
+            viewBox="0 0 20 27"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M1.25 0.5H18.75C19.0815 0.5 19.3995 0.631696 19.6339 0.866116C19.8683 1.10054 20 1.41848 20 1.75V25.6787C20.0001 25.7905 19.9703 25.9003 19.9136 25.9966C19.8569 26.0929 19.7755 26.1722 19.6777 26.2264C19.5799 26.2805 19.4694 26.3074 19.3577 26.3043C19.246 26.3012 19.1371 26.2682 19.0425 26.2087L10 20.5375L0.9575 26.2075C0.86296 26.2669 0.754234 26.2999 0.642627 26.303C0.531021 26.3062 0.420608 26.2794 0.322869 26.2254C0.22513 26.1714 0.143634 26.0923 0.0868535 25.9961C0.0300735 25.9 8.30886e-05 25.7904 0 25.6787V1.75C0 1.41848 0.131696 1.10054 0.366117 0.866116C0.600537 0.631696 0.918479 0.5 1.25 0.5Z"
+              fill="#D2CFCF"
+            />
+          </svg>
         </button>
       </div>
 
