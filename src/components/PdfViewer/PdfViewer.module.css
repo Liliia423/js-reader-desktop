@@ -1,3 +1,27 @@
 .iconsBottom {
   background-color: inherit;
+  margin: 0;
+}
+
+.bookmarksBlock {
+  display: flex;
+  align-self: flex-start;
+  gap: 8px;
+  align-items: center;
+  margin-top: 20px;
+  padding-top: 4px;
+  border-top: solid 1px #3c3c35;
+}
+
+.bookmarkIcon {
+  fill: #3c3c35;
+  transition: fill 0.3s ease;
+}
+
+.bookmarkIconActive {
+  fill: #e53935; /* червоний */
+}
+
+.bookmarkIcon:hover {
+  fill: rgb(226, 140, 134);
 }

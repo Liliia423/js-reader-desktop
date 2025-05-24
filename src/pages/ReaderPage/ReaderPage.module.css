@@ -1,4 +1,23 @@
 .headerHeropage {
   color: #fd5558;
-  font-size: 32px;
+  font-size: 24px;
+}
+
+.viewerPage {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 0 24px 24px 24px;
+}
+
+.downloadBlock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+svg {
+  display: flex;
+  align-items: center;
 }
