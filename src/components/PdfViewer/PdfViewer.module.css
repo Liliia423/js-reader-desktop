@@ -22,11 +22,31 @@
   fill: #e53935; /* червоний */
 }
 
-.bookmarkIcon:hover {
+button .bookmarkIcon:hover {
   fill: rgb(226, 140, 134);
 }
 
 .pdfWrapper {
   height: calc(100vh - 214px);
   overflow: auto;
+}
+
+/* У твоєму PdfViewer.module.css або глобально */
+.pdfWrapper::-webkit-scrollbar {
+  width: 10px;
+}
+
+.pdfWrapper::-webkit-scrollbar-track {
+  background: #d8d3aa; /* світлий фон треку */
+  border-radius: 6px;
+}
+
+.pdfWrapper::-webkit-scrollbar-thumb {
+  background-color: #bc7520; /* основний колір скролу */
+  border-radius: 6px;
+  border: 2px solid #d8d3aa; /* ефект відступу всередині треку */
+}
+
+.pdfWrapper::-webkit-scrollbar-thumb:hover {
+  background-color: #9c5817; /* темніший при наведенні */
 }

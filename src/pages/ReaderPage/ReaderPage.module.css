@@ -21,3 +21,13 @@ svg {
   display: flex;
   align-items: center;
 }
+
+.downloadBlock label {
+  display: inline-flex;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.downloadBlock label:hover {
+  transform: translateY(-1.5px);
+  cursor: pointer;
+}
