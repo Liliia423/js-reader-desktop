@@ -25,3 +25,8 @@
 .bookmarkIcon:hover {
   fill: rgb(226, 140, 134);
 }
+
+.pdfWrapper {
+  height: calc(100vh - 214px);
+  overflow: auto;
+}

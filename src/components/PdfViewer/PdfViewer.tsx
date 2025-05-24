@@ -81,10 +81,11 @@ export const PdfViewer = ({ file }: Props) => {
 
   return (
     <div>
-      <Document file={fileUrl} onLoadSuccess={onDocumentLoadSuccess}>
-        <Page pageNumber={pageNumber} width={pageWidth} />
-      </Document>
-
+      <div className={styles.pdfWrapper}>
+        <Document file={fileUrl} onLoadSuccess={onDocumentLoadSuccess}>
+          <Page pageNumber={pageNumber} width={pageWidth} />
+        </Document>
+      </div>
       <div style={{ marginTop: "10px" }}>
         <button onClick={() => setPageNumber((p) => Math.max(p - 1, 1))}>
           ←
