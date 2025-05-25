@@ -1,20 +1,21 @@
 .headerHeropage {
-  color: #fd5558;
+  color: #9c5817;
   font-size: 24px;
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
 }
 
 .viewerPage {
   display: flex;
   flex-direction: column;
   text-align: center;
-  padding: 0 24px 24px 24px;
+  padding: 0 24px;
 }
 
 .downloadBlock {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 24px;
+  gap: 16px;
 }
 
 svg {
@@ -28,6 +29,34 @@ svg {
 }
 
 .downloadBlock label:hover {
+  transform: translateY(-1.5px);
+  cursor: pointer;
+}
+
+.footerGap {
+  height: 16px;
+  background: transparent; /* або можна щось декоративне */
+}
+
+.closeBtn {
+  position: absolute;
+  top: 13px;
+  right: 16px;
+  padding: 0;
+  background-color: #d3cd9a;
+}
+
+.closeBtn:focus {
+  outline: none;
+}
+
+.closeBtn:focus-visible {
+  outline: none;
+}
+
+.closeBtn:hover {
+  outline: none;
+  border: solid 1px #d3cd9a;
   transform: translateY(-1.5px);
   cursor: pointer;
 }
