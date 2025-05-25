@@ -58,6 +58,12 @@ export const PdfViewer = ({ file }: Props) => {
   // 💾 Зберігати сторінку при зміні
   useEffect(() => {
     localStorage.setItem(STORAGE_PAGE, pageNumber.toString());
+
+    const links = document.querySelectorAll(".pdfWrapper a");
+    links.forEach((link) => {
+      link.setAttribute("target", "_blank");
+      link.setAttribute("rel", "noopener noreferrer");
+    });
   }, [pageNumber, STORAGE_PAGE]);
 
   const addBookmark = () => {
@@ -82,30 +88,6 @@ export const PdfViewer = ({ file }: Props) => {
   return (
     <div>
       <div className={styles.firstBlock}>
-        {bookmarks.length > 0 && (
-          <div className={styles.bookmarksFirstBlock}>
-            <strong className={styles.boomarks}>Bookmarks:</strong>
-            <div className={styles.selectBookmarks} style={{}}>
-              {bookmarks.map((page) => (
-                <div className={styles.actionBookmarks} key={page}>
-                  <button
-                    className={styles.bookmarkBtn}
-                    onClick={() => setPageNumber(page)}
-                  >
-                    {page}
-                  </button>
-                  <button
-                    className={styles.removeBtn}
-                    onClick={() => removeBookmark(page)}
-                    style={{ color: "red" }}
-                  >
-                    ✕
-                  </button>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
         <div className={styles.pdfWrapper}>
           <Document file={fileUrl} onLoadSuccess={onDocumentLoadSuccess}>
             <Page pageNumber={pageNumber} width={pageWidth} />
@@ -145,6 +127,30 @@ export const PdfViewer = ({ file }: Props) => {
           </svg>
         </button>
       </div>
+      {bookmarks.length > 0 && (
+        <div className={styles.bookmarksFirstBlock}>
+          <strong className={styles.boomarks}>Bookmarks:</strong>
+          <div className={styles.selectBookmarks} style={{}}>
+            {bookmarks.map((page) => (
+              <div className={styles.actionBookmarks} key={page}>
+                <button
+                  className={styles.bookmarkBtn}
+                  onClick={() => setPageNumber(page)}
+                >
+                  {page}
+                </button>
+                <button
+                  className={styles.removeBtn}
+                  onClick={() => removeBookmark(page)}
+                  style={{ color: "red" }}
+                >
+                  ✕
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

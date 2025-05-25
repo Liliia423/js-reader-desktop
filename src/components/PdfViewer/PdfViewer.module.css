@@ -18,20 +18,17 @@ button:focus {
   display: flex;
   align-items: flex-start;
   justify-content: center;
+  height: 100%;
 }
 
 .bookmarksFirstBlock {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  margin-right: 16px;
-  max-width: 130px;
+  margin-top: 16px;
 }
 
 .selectBookmarks {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
 }
 
 .actionBookmarks {
@@ -39,22 +36,21 @@ button:focus {
   justify-content: space-between;
   align-items: center;
   gap: 6px;
-  flex-wrap: wrap;
-  margin-top: 16px;
+  margin-right: 16px;
 }
 
 .boomarks {
   color: #38382c;
   font-size: 20px;
   font-weight: 500;
-  margin-bottom: 16px;
+  margin-right: 24px;
   text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
 }
 
 /* основна кнопка з номером сторінки */
 .bookmarkBtn {
   width: 54px;
-  height: 54px;
+  height: 40px;
   font-size: 16px;
   font-weight: 600;
 
@@ -156,7 +152,9 @@ button .bookmarkIcon:hover {
 }
 
 .pdfWrapper {
-  height: calc(100vh - 148px);
+  height: calc(100vh - 260px);
+  min-width: 600px;
+  flex: 1;
   overflow: auto;
 }
 
@@ -189,7 +187,9 @@ button .bookmarkIcon:hover {
   position: relative;
   margin-top: 16px;
   padding-top: 16px;
+  padding-bottom: 16px;
   border-top: solid 1px #bbb481;
+  border-bottom: solid 1px #bbb481;
 }
 
 /* Навігаційні кнопки ← → */
