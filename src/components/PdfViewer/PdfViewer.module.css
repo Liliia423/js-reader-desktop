@@ -23,41 +23,41 @@ button:focus {
 
 .bookmarksFirstBlock {
   display: flex;
-  align-items: center;
-  margin-top: 16px;
+  flex-direction: column;
+  align-items: left;
 }
 
 .selectBookmarks {
   display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .actionBookmarks {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   gap: 6px;
-  margin-right: 16px;
 }
 
 .boomarks {
   color: #38382c;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
-  margin-right: 24px;
+
   text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
 }
 
 /* основна кнопка з номером сторінки */
 .bookmarkBtn {
-  width: 54px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   font-size: 16px;
   font-weight: 600;
 
   background-color: #38382c;
   color: #f3f4f2;
   font-weight: 300;
-  font-size: 20px;
+  font-size: 16px;
   border: none;
   border-radius: 8px;
   text-align: center;
@@ -91,14 +91,12 @@ button:focus {
   background-color: transparent;
   border: none;
   border-radius: 6px;
-  color: red;
+  color: #e53935;
   cursor: pointer;
   user-select: none;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   outline: none;
   box-shadow: none;
 }
@@ -111,9 +109,7 @@ button:focus {
 .iconsBottom {
   background-color: inherit;
   margin: 0;
-  width: 54px;
-  height: 40px;
-
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -126,6 +122,7 @@ button:focus {
   outline: none;
   box-shadow: none;
   transition: background-color 0.2s ease;
+  margin-left: 16px;
 }
 
 .bookmarksBlock {
@@ -189,13 +186,12 @@ button .bookmarkIcon:hover {
   padding-top: 16px;
   padding-bottom: 16px;
   border-top: solid 1px #bbb481;
-  border-bottom: solid 1px #bbb481;
 }
 
 /* Навігаційні кнопки ← → */
 .navBtn {
-  width: 54px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
 
   background-color: #f3f4f2;
   color: #38382c;
@@ -225,4 +221,9 @@ button .bookmarkIcon:hover {
 .arrows {
   display: flex;
   align-items: center;
+}
+
+.pageLabel {
+  font-size: 16px;
+  color: #3b4130;
 }
