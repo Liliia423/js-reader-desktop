@@ -23,14 +23,12 @@ button:focus {
 
 .bookmarksFirstBlock {
   display: flex;
-  flex-direction: column;
-  align-items: left;
+  align-items: center;
+  gap: 16px;
 }
 
 .selectBookmarks {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
 }
 
 .actionBookmarks {
@@ -149,7 +147,7 @@ button .bookmarkIcon:hover {
 }
 
 .pdfWrapper {
-  height: calc(100vh - 260px);
+  height: calc(100vh - 188px);
   min-width: 600px;
   flex: 1;
   overflow: auto;
