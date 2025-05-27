@@ -19,7 +19,7 @@ pub fn run() {
   tauri::Builder::default()
     .setup(|app| {
       // 🔧 Автоматичне встановлення розміру вікна
-      let window = app.get_window("main").unwrap();
+      let window = app.app_handle().get_window("main").unwrap();
       let monitor = window.primary_monitor()?.unwrap();
       let size = monitor.size();
 
