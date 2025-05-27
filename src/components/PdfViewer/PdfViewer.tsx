@@ -20,8 +20,16 @@ export const PdfViewer = ({ file }: Props) => {
   const bookId = `${file.name}_${file.size}`;
   const STORAGE_PAGE = `reader-progress:${bookId}`;
   const STORAGE_BOOKMARKS = `reader-bookmarks:${bookId}`;
+  const [canvasWidth, setCanvasWidth] = useState(800);
 
   const fileUrl = useMemo(() => URL.createObjectURL(file), [file]);
+
+  useEffect(() => {
+    const canvas = document.querySelector("canvas");
+    if (canvas) {
+      setCanvasWidth(canvas.width || 800);
+    }
+  }, [pageNumber]);
 
   // ⬇️ Завантажити прогрес і закладки при новому файлі
   useEffect(() => {
@@ -128,27 +136,27 @@ export const PdfViewer = ({ file }: Props) => {
         </button>
       </div>
       {bookmarks.length > 0 && (
-        <div className={styles.bookmarksFirstBlock}>
-          <strong className={styles.boomarks}>Bookmarks:</strong>
-          <div className={styles.selectBookmarks} style={{}}>
-            {bookmarks.map((page) => (
-              <div className={styles.actionBookmarks} key={page}>
-                <button
-                  className={styles.bookmarkBtn}
-                  onClick={() => setPageNumber(page)}
-                >
-                  {page}
-                </button>
-                <button
-                  className={styles.removeBtn}
-                  onClick={() => removeBookmark(page)}
-                  style={{ color: "red" }}
-                >
-                  ✕
-                </button>
-              </div>
-            ))}
-          </div>
+        <div
+          className={styles.bookmarksFirstBlock}
+          style={{ maxWidth: `${canvasWidth}px` }}
+        >
+          {bookmarks.map((page) => (
+            <div className={styles.actionBookmarks} key={page}>
+              <button
+                className={styles.bookmarkBtn}
+                onClick={() => setPageNumber(page)}
+              >
+                {page}
+              </button>
+              <button
+                className={styles.removeBtn}
+                onClick={() => removeBookmark(page)}
+                style={{ color: "red" }}
+              >
+                ✕
+              </button>
+            </div>
+          ))}
         </div>
       )}
     </div>
