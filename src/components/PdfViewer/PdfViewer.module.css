@@ -26,7 +26,9 @@ button:focus {
 }
 
 .bookmarksFirstBlock {
-  overflow-x: auto; /* ⬅️ Прокрутка на всю область */
+  overflow-x: auto !important; /* ⬅️ Прокрутка на всю область */
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
   width: 100%; /* ⬅️ Щоб не стискалося */
   display: flex;
   gap: 12px;
@@ -151,10 +153,11 @@ button .bookmarkIcon:hover {
 }
 
 .pdfWrapper {
-  height: calc(100vh - 214px);
+  height: calc(100vh - 198px);
   min-width: 600px;
   flex: 1;
   overflow: auto;
+  padding-right: 4px;
 }
 
 /* У твоєму PdfViewer.module.css або глобально */
@@ -185,9 +188,8 @@ button .bookmarkIcon:hover {
   gap: 10px;
   position: relative;
   margin-top: 16px;
-  padding-top: 16px;
+
   padding-bottom: 16px;
-  border-top: solid 1px #bbb481;
 }
 
 /* Навігаційні кнопки ← → */
