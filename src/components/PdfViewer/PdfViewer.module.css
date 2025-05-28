@@ -193,8 +193,8 @@ button .bookmarkIcon:hover {
 
 /* Навігаційні кнопки ← → */
 .navBtn {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 28px;
 
   background-color: #f3f4f2;
   color: #38382c;
@@ -218,7 +218,8 @@ button .bookmarkIcon:hover {
 }
 
 .navBtn:hover {
-  background-color: #9d9d8d;
+  background-color: #38382c;
+  color: #ffffff;
 }
 
 .arrows {
@@ -236,7 +237,13 @@ button .bookmarkIcon:hover {
   width: 40px;
   text-align: center;
   font-size: 14px;
-  border: 1px solid #aaa;
+  border: none;
   border-radius: 4px;
-  padding: 2px;
+  padding: 4px 2px;
+  outline: none;
+}
+
+.pageInlineInput {
+  color: #121310;
+  font-weight: 500;
 }
