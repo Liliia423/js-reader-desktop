@@ -232,3 +232,12 @@ button .bookmarkIcon:hover {
   font-size: 16px;
   color: #3b4130;
 }
+
+.pageInlineInput {
+  width: 40px;
+  text-align: center;
+  font-size: 14px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  padding: 2px;
+}

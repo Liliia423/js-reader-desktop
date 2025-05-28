@@ -222,12 +222,26 @@ export const ReaderPage = () => {
     }
   };
 
-  const removeBookmark = (page: number) => {
+  {
+    /*const removeBookmark = (page: number) => {
     const updated = bookmarks.filter((p) => p !== page);
     setBookmarks(updated);
     if (file) {
       const id = `${file.name}_${file.size}`;
       localStorage.setItem(`reader-bookmarks:${id}`, JSON.stringify(updated));
+    }
+  };*/
+  }
+
+  const removeBookmark = (page: number) => {
+    const updated = bookmarks.filter((p) => p !== page);
+    setBookmarks(updated);
+    if (file) {
+      const bookId = `${file.name}_${file.size}`;
+      localStorage.setItem(
+        `reader-bookmarks:${bookId}`,
+        JSON.stringify(updated)
+      );
     }
   };
 
@@ -320,6 +334,7 @@ export const ReaderPage = () => {
               file={file}
               pageNumber={currentPage} // ⬅️ ЦЕЙ ПРОП ВАЖЛИВИЙ
               addBookmark={addBookmark}
+              removeBookmark={removeBookmark}
               bookmarks={bookmarks}
               setPageNumberExternal={setCurrentPage}
             />
