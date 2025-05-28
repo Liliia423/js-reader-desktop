@@ -228,7 +228,8 @@ button .bookmarkIcon:hover {
 
 .pageLabel {
   font-size: 16px;
-  color: #3b4130;
+  color: #121310;
+  padding: 0 8px;
 }
 
 .pageInlineInput {
