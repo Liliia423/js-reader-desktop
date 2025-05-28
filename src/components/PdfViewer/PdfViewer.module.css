@@ -35,6 +35,7 @@ button:focus {
   /* стилізація для Firefox */
   scrollbar-width: thin;
   scrollbar-color: #707763 transparent;
+  max-width: 600px;
 }
 
 .actionBookmarks {
