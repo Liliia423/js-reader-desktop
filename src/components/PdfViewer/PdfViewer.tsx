@@ -430,8 +430,21 @@ export const PdfViewer = ({
 
   useEffect(() => {
     const canvas = document.querySelector("canvas");
-    if (canvas) {
-      setPageWidth(canvas.width || 800);
+    if (canvas instanceof HTMLCanvasElement) {
+      const realWidth = canvas.getBoundingClientRect().width;
+      setPageWidth(realWidth || 800);
+    }
+  }, [pageNumber]);
+
+  useEffect(() => {
+    setPageInput(""); // очистити ручний інпут
+  }, [file]); // при новому PDF-файлі
+
+  useEffect(() => {
+    const canvas = document.querySelector("canvas");
+    if (canvas instanceof HTMLCanvasElement) {
+      const realWidth = canvas.getBoundingClientRect().width;
+      setPageWidth(realWidth || 800);
     }
   }, [pageNumber]);
 
