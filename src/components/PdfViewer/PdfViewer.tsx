@@ -397,7 +397,10 @@ export const PdfViewer = ({
 }
 import { Document, Page, pdfjs } from "react-pdf";
 import { useEffect, useMemo, useState } from "react";
-import { InlineError } from "../InlineError/InlineError";
+{
+  /*import { InlineError } from "../InlineError/InlineError";*/
+}
+import { FloatingMessage } from "../FloatingMessage/FloatingMessage";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
 import styles from "../PdfViewer/PdfViewer.module.css";
@@ -425,6 +428,13 @@ export const PdfViewer = ({
   const [pageWidth, setPageWidth] = useState(800);
   const [pageInput, setPageInput] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+
+  useEffect(() => {
+    if (errorMessage) {
+      const timeout = setTimeout(() => setErrorMessage(""), 4000);
+      return () => clearTimeout(timeout);
+    }
+  }, [errorMessage]);
 
   const fileUrl = useMemo(() => URL.createObjectURL(file), [file]);
 
@@ -504,7 +514,9 @@ export const PdfViewer = ({
                 if (e.key === "Enter") {
                   const num = parseInt(pageInput, 10);
                   if (isNaN(num) || num < 1 || (numPages && num > numPages)) {
-                    setErrorMessage("Такої сторінки не існує.");
+                    setErrorMessage(
+                      "This page does not exist. Please enter a valid page number."
+                    );
                   } else {
                     setErrorMessage("");
                     setPageNumberExternal(num);
@@ -518,7 +530,8 @@ export const PdfViewer = ({
             />{" "}
             of {numPages}
           </span>
-          <InlineError message={errorMessage} />
+          {/*<InlineError message={errorMessage} />*/}
+          {errorMessage && <FloatingMessage text={errorMessage} />}
 
           <button
             className={styles.navBtn}

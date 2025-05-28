@@ -222,17 +222,6 @@ export const ReaderPage = () => {
     }
   };
 
-  {
-    /*const removeBookmark = (page: number) => {
-    const updated = bookmarks.filter((p) => p !== page);
-    setBookmarks(updated);
-    if (file) {
-      const id = `${file.name}_${file.size}`;
-      localStorage.setItem(`reader-bookmarks:${id}`, JSON.stringify(updated));
-    }
-  };*/
-  }
-
   const removeBookmark = (page: number) => {
     const updated = bookmarks.filter((p) => p !== page);
     setBookmarks(updated);
@@ -332,7 +321,7 @@ export const ReaderPage = () => {
 
             <PdfViewer
               file={file}
-              pageNumber={currentPage} // ⬅️ ЦЕЙ ПРОП ВАЖЛИВИЙ
+              pageNumber={currentPage}
               addBookmark={addBookmark}
               removeBookmark={removeBookmark}
               bookmarks={bookmarks}
