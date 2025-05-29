@@ -184,15 +184,26 @@ export const ReaderPage = () => {
   const [bookmarks, setBookmarks] = useState<number[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [hoveredBookmark, setHoveredBookmark] = useState<number | null>(null);
+  const [fileInputKey, setFileInputKey] = useState(0);
 
   const { addTab } = useTabContext();
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selected = e.target.files?.[0];
+    {
+      /* if (file) {
+      const id = `${file.name}_${file.size}`;
+      localStorage.removeItem(`reader-progress:${id}`);
+      localStorage.removeItem(`reader-bookmarks:${id}`);
+      localStorage.removeItem("reader-last-book");
+    }*/
+    }
+
     if (selected) {
       setFile(selected);
       setBookmarks([]);
       setCurrentPage(1);
+      setFileInputKey((prev) => prev + 1);
 
       const id = `${selected.name}_${selected.size}`;
       addTab({ id, title: selected.name, file: selected });
@@ -248,6 +259,7 @@ export const ReaderPage = () => {
       <div className={styles.downloadBlock}>
         <label style={{ cursor: "pointer" }}>
           <input
+            key={fileInputKey}
             type="file"
             accept=".pdf"
             onChange={handleFileChange}
@@ -326,6 +338,7 @@ export const ReaderPage = () => {
             </div>
 
             <PdfViewer
+              key={file.name + file.lastModified}
               file={file}
               pageNumber={currentPage}
               addBookmark={addBookmark}

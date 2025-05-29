@@ -409,6 +409,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = "/pdf.worker.mjs";
 
 type Props = {
   file: File;
+
   pageNumber: number;
   addBookmark: (page: number) => void;
   removeBookmark: (page: number) => void;
