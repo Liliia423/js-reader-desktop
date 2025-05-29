@@ -11,7 +11,6 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  min-height: 100%;
 }
 
 body {
@@ -20,6 +19,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-color: #d3cd9a;
+  background-color: #e3e0c4;
 }
 
 h1 {
@@ -82,7 +82,6 @@ body {
 }
 
 #root {
-  min-height: 100%;
   display: flex;
   flex-direction: column;
 }

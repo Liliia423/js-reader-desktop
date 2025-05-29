@@ -1,6 +1,6 @@
 .floatingMessage {
   position: fixed;
-  bottom: 42px;
+  bottom: 0;
   left: 50%;
   width: 100%;
   transform: translateX(-50%);

@@ -1,3 +1,10 @@
+.documentBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  height: 90vh;
+}
+
 button {
   padding: 0;
 }
@@ -154,7 +161,7 @@ button .bookmarkIcon:hover {
 }
 
 .pdfWrapper {
-  height: calc(100vh - 198px);
+  height: calc(100vh - 160px);
   min-width: 600px;
   flex: 1;
   overflow: auto;
@@ -188,7 +195,7 @@ button .bookmarkIcon:hover {
   justify-content: center;
   gap: 10px;
   position: relative;
-  margin-top: 16px;
+  margin-bottom: 16px;
 }
 
 /* Навігаційні кнопки ← → */

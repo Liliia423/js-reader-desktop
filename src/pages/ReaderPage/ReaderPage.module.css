@@ -1,3 +1,10 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 32px;
+}
+
 .headerHeropage {
   color: #3b4130;
   font-size: 24px;
@@ -14,10 +21,11 @@
 .downloadBlock {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
   gap: 16px;
   position: sticky;
   top: 0;
+  padding-left: 130px;
 }
 
 svg {
@@ -38,7 +46,7 @@ svg {
 
 .marksAndFile {
   display: flex;
-  height: calc(100vh - 198px);
+  height: calc(100vh - 160px);
 }
 
 .bookmarksFirstBlock {
@@ -54,8 +62,6 @@ svg {
 }
 
 .bookmarks {
-  max-height: 400px;
-  margin-right: 4px;
   color: #3b4130;
   font-size: 16px;
   text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
@@ -68,6 +74,7 @@ svg {
   right: 16px;
   padding: 0;
   background-color: #d3cd9a;
+  background-color: #e3e0c4;
 }
 
 .closeBtn:focus {
@@ -81,6 +88,7 @@ svg {
 .closeBtn:hover {
   outline: none;
   border: solid 1px #d3cd9a;
+  border: solid 1px #e3e0c4;
   transform: translateY(-1.5px);
   cursor: pointer;
 }
@@ -170,46 +178,4 @@ svg {
 
 .bookmarksWrapper::-webkit-scrollbar-thumb:hover {
   background-color: #9c5817; /* темніший при наведенні */
-}
-
-.marksWrapper {
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-}
-
-.markersColumn,
-.bookmarksColumn {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  background-color: #ded4a3;
-  padding: 8px;
-  border-radius: 8px;
-}
-
-.markersTitle,
-.bookmarksTitle {
-  font-weight: bold;
-  margin-bottom: 4px;
-}
-
-.markerBtn,
-.bookmarkBtn {
-  background-color: #3c3c35;
-  color: white;
-  padding: 4px 10px;
-  border-radius: 6px;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.removeMarkerBtn,
-.removeBtn {
-  margin-left: 4px;
-  background: none;
-  border: none;
-  color: red;
-  font-size: 16px;
-  cursor: pointer;
 }
