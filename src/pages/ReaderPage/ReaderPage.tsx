@@ -114,7 +114,7 @@ export const ReaderPage = () => {
             {file ? "Open New File" : "PDF Viewer for Everyone"}
           </h1>
         </div>
-        <div>Tabs</div>
+        {/*<div>Tabs</div>*/}
       </div>
 
       {file && (
@@ -136,7 +136,7 @@ export const ReaderPage = () => {
 
           <div className={styles.marksAndFile}>
             <div className={styles.bookmarksWrapper}>
-              <div className={styles.bookmarks}>Bookmarks:</div>
+              {/*<div className={styles.bookmarks}>Bookmarks:</div>*/}
               {bookmarks.length > 0 && (
                 <div className={styles.bookmarksFirstBlock}>
                   {bookmarks.map((page) => (
