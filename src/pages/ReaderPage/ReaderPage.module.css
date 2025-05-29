@@ -16,6 +16,7 @@
   flex-direction: column;
   text-align: center;
   padding: 0 24px;
+  height: 100vh;
 }
 
 .downloadBlock {
@@ -46,6 +47,7 @@ svg {
 .marksAndFile {
   display: flex;
   height: calc(100vh - 160px);
+  height: 85vh;
 }
 
 .bookmarksFirstBlock {
@@ -60,13 +62,13 @@ svg {
   margin-bottom: 10px;
 }
 
-.bookmarks {
+/*.bookmarks {
   color: #3b4130;
   font-size: 16px;
   text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
   font-weight: 500;
   margin-bottom: 24px;
-}
+}*/
 .closeBtn {
   position: absolute;
   top: 13px;
@@ -180,4 +182,10 @@ svg {
 
 .bookmarksWrapper::-webkit-scrollbar-thumb:hover {
   background-color: #9c5817; /* темніший при наведенні */
+}
+
+.activeBookmark {
+  background-color: #ffb636; /* або твій стиль */
+  border-radius: 8px 2px 2px 8px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
 }

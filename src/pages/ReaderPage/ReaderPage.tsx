@@ -12,6 +12,7 @@ export const ReaderPage = () => {
   const [fileInputKey, setFileInputKey] = useState(0);
 
   const { addTab } = useTabContext();
+  const pageOffset = 0;
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selected = e.target.files?.[0];
@@ -136,7 +137,7 @@ export const ReaderPage = () => {
 
           <div className={styles.marksAndFile}>
             <div className={styles.bookmarksWrapper}>
-              {/*<div className={styles.bookmarks}>Bookmarks:</div>*/}
+              {/*<div className={styles.bookmarks}>Bookmarks:</div>
               {bookmarks.length > 0 && (
                 <div className={styles.bookmarksFirstBlock}>
                   {bookmarks.map((page) => (
@@ -161,6 +162,37 @@ export const ReaderPage = () => {
                       </button>
                     </div>
                   ))}
+                </div>
+              )}*/}
+              {bookmarks.length > 0 && (
+                <div className={styles.bookmarksFirstBlock}>
+                  {bookmarks.map((page) => {
+                    const isActive = currentPage === page + pageOffset;
+                    return (
+                      <div
+                        key={page}
+                        className={`${styles.actionBookmarks} ${
+                          isActive ? styles.activeBookmark : ""
+                        }`}
+                        onMouseEnter={() => setHoveredBookmark(page)}
+                        onMouseLeave={() => setHoveredBookmark(null)}
+                      >
+                        <button
+                          className={styles.bookmarkBtn}
+                          onClick={() => setCurrentPage(page)}
+                        >
+                          {page}
+                        </button>
+                        <button
+                          className={styles.removeBtn}
+                          onClick={() => removeBookmark(page)}
+                          style={{ color: "red" }}
+                        >
+                          ✕
+                        </button>
+                      </div>
+                    );
+                  })}
                 </div>
               )}
             </div>
