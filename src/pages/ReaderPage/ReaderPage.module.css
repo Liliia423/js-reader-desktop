@@ -58,8 +58,12 @@ svg {
 .actionBookmarks {
   display: flex;
   align-items: center;
-  gap: 4px;
-  margin-bottom: 10px;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 12px;
+
+  border-bottom: solid 1px #bc7520;
+  background: linear-gradient(180deg, #e3e0c4 0%, #ffb636 100%);
 }
 
 /*.bookmarks {
@@ -72,7 +76,7 @@ svg {
 .closeBtn {
   position: absolute;
   top: 13px;
-  right: 16px;
+  right: 32px;
   padding: 0;
   background-color: #d3cd9a;
   background-color: #e3e0c4;
@@ -96,16 +100,17 @@ svg {
 
 /* основна кнопка з номером сторінки */
 .bookmarkBtn {
-  width: 32px;
-  height: 32px;
+  /*width: 32px;
+  height: 32px;*/
   font-size: 16px;
   font-weight: 600;
-
+  padding: 12px 12px 4px 12px;
   background-color: #38382c;
   background-color: #fffef9;
+  background-color: transparent;
   color: #f3f4f2;
   color: #141413;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 16px;
   border: none;
   border-radius: 8px;
@@ -123,8 +128,7 @@ svg {
 }
 
 .bookmarkBtn:hover {
-  background-color: #4b4b3c;
-  color: #fffef9;
+  color: #f3f4f2;
 }
 
 .bookmarkBtn:focus,
@@ -135,13 +139,15 @@ svg {
 
 /* кнопка видалення ✕ */
 .removeBtn {
-  width: 32px;
-  height: 32px;
+  /*width: 32px;
+  height: 32px;*/
+  padding: 12px 12px 4px 12px;
   font-size: 18px;
   background-color: transparent;
   border: none;
   border-radius: 6px;
   color: #e53935;
+
   cursor: pointer;
   user-select: none;
   display: flex;
@@ -149,6 +155,12 @@ svg {
   align-items: center;
   outline: none;
   box-shadow: none;
+}
+
+.removeBtn:hover {
+  transform: translateY(-1.5px);
+  cursor: pointer;
+  color: #f3f4f2;
 }
 
 .removeBtn:focus,
@@ -160,7 +172,7 @@ svg {
 .bookmarksWrapper {
   flex: 1;
   overflow: auto;
-  padding-right: 4px;
+  padding-right: 8px;
   margin-right: 16px;
 }
 
@@ -185,7 +197,7 @@ svg {
 }
 
 .activeBookmark {
-  background-color: #ffb636; /* або твій стиль */
-  border-radius: 8px 2px 2px 8px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
+  border-bottom: solid 1.5px #fffef9;
+  background: linear-gradient(180deg, #e3e0c4 0%, #7b5108 100%);
 }

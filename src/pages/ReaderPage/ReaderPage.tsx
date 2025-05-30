@@ -137,33 +137,6 @@ export const ReaderPage = () => {
 
           <div className={styles.marksAndFile}>
             <div className={styles.bookmarksWrapper}>
-              {/*<div className={styles.bookmarks}>Bookmarks:</div>
-              {bookmarks.length > 0 && (
-                <div className={styles.bookmarksFirstBlock}>
-                  {bookmarks.map((page) => (
-                    <div
-                      key={page}
-                      className={styles.actionBookmarks}
-                      onMouseEnter={() => setHoveredBookmark(page)}
-                      onMouseLeave={() => setHoveredBookmark(null)}
-                    >
-                      <button
-                        className={styles.bookmarkBtn}
-                        onClick={() => setCurrentPage(page)}
-                      >
-                        {page}
-                      </button>
-                      <button
-                        className={styles.removeBtn}
-                        onClick={() => removeBookmark(page)}
-                        style={{ color: "red" }}
-                      >
-                        ✕
-                      </button>
-                    </div>
-                  ))}
-                </div>
-              )}*/}
               {bookmarks.length > 0 && (
                 <div className={styles.bookmarksFirstBlock}>
                   {bookmarks.map((page) => {
@@ -186,7 +159,6 @@ export const ReaderPage = () => {
                         <button
                           className={styles.removeBtn}
                           onClick={() => removeBookmark(page)}
-                          style={{ color: "red" }}
                         >
                           ✕
                         </button>
@@ -217,6 +189,9 @@ export const ReaderPage = () => {
           </div>
         </div>
       )}
+      <footer className={styles.pagesAndMark}>
+        This is footer. Here will be page counter.
+      </footer>
     </div>
   );
 };
