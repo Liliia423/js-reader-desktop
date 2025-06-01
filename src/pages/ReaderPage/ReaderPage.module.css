@@ -16,6 +16,7 @@
   flex-direction: column;
   text-align: center;
   padding: 0 24px;
+  padding-top: 16px;
   height: 100vh;
 }
 
@@ -65,7 +66,7 @@ svg {
   margin-bottom: 12px;
 
   border-bottom: solid 1px #bc7520;
-  background: linear-gradient(180deg, #e3e0c4 0%, #fcc15c 100%);
+  background: linear-gradient(180deg, #e3e0c4 0%, #d8b96a 100%);
 }
 
 /*.bookmarks {
@@ -104,16 +105,16 @@ svg {
 .bookmarkBtn {
   /*width: 32px;
   height: 32px;*/
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 600;
-  padding: 12px 12px 4px 12px;
+  padding: 8px 12px 2px 12px;
   background-color: #38382c;
   background-color: #fffef9;
   background-color: transparent;
   color: #f3f4f2;
   color: #141413;
   font-weight: 400;
-  font-size: 16px;
+
   border: none;
   border-radius: 8px;
   text-align: center;
@@ -143,8 +144,8 @@ svg {
 .removeBtn {
   /*width: 32px;
   height: 32px;*/
-  padding: 12px 12px 4px 12px;
-  font-size: 18px;
+  padding: 8px 12px 2px 12px;
+
   background-color: transparent;
   border: none;
   border-radius: 6px;
@@ -172,7 +173,7 @@ svg {
 }
 
 .bookmarksWrapper {
-  height: calc(100vh - 145px);
+  height: calc(100vh - 78px);
   flex: 1;
   overflow-x: hidden;
   overflow-y: auto;
@@ -324,10 +325,10 @@ button:focus {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 21px auto;
+  margin-bottom: 18px;
 }
 
 .bottomBlock {
-  height: 70px;
+  height: 60px;
   background-color: transparent;
 }
