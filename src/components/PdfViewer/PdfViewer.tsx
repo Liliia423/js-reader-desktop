@@ -13,16 +13,16 @@ type Props = {
 };
 
 export const PdfViewer = ({ file, pageNumber, onDocumentLoad }: Props) => {
-  const [pageWidth, setPageWidth] = useState(800);
+  const [pageWidth, setPageWidth] = useState(660);
   const fileUrl = useMemo(() => URL.createObjectURL(file), [file]);
 
   useEffect(() => {
     const screenWidth = window.innerWidth;
-    const safeWidth = Math.min(screenWidth * 1, 800);
+    const safeWidth = Math.min(screenWidth * 1, 660);
     setPageWidth(safeWidth);
 
     const resizeHandler = () => {
-      const newSafeWidth = Math.min(window.innerWidth * 1, 800);
+      const newSafeWidth = Math.min(window.innerWidth * 1, 660);
       setPageWidth(newSafeWidth);
     };
 
