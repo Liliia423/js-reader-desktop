@@ -170,7 +170,9 @@ svg {
 .bookmarksWrapper {
   height: calc(100vh - 135px);
   flex: 1;
-  overflow: auto;
+
+  overflow-x: hidden;
+  overflow-y: auto;
   padding-right: 8px;
   margin-right: 16px;
   max-width: 96px;

@@ -161,7 +161,6 @@ button .bookmarkIcon:hover {
 .pdfWrapper {
   height: calc(100vh - 135px);
 
-  min-width: 600px;
   flex: 1;
 
   overflow-x: hidden;
