@@ -261,6 +261,7 @@ export const ReaderPage = () => {
           </button>
         </footer>
       )}
+      <div className={styles.bottomBlock}></div>
     </div>
   );
 };

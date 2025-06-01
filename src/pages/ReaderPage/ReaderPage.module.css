@@ -172,7 +172,7 @@ svg {
 }
 
 .bookmarksWrapper {
-  height: calc(100vh - 135px);
+  height: calc(100vh - 145px);
   flex: 1;
   overflow-x: hidden;
   overflow-y: auto;
@@ -317,8 +317,15 @@ button:focus {
 }
 
 .pagesAndMark {
+  position: fixed;
+  bottom: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 24px auto;
+  margin: 21px auto;
+}
+
+.bottomBlock {
+  height: 70px;
+  background-color: transparent;
 }

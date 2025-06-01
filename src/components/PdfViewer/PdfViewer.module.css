@@ -159,7 +159,7 @@ button .bookmarkIcon:hover {
 }
 
 .pdfWrapper {
-  height: calc(100vh - 135px);
+  height: calc(100vh - 145px);
   max-width: 100%;
   flex: 1;
   overflow-x: hidden;
