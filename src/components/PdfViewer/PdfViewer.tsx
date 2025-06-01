@@ -18,11 +18,11 @@ export const PdfViewer = ({ file, pageNumber, onDocumentLoad }: Props) => {
 
   useEffect(() => {
     const screenWidth = window.innerWidth;
-    const safeWidth = Math.min(screenWidth * 0.95, 800);
+    const safeWidth = Math.min(screenWidth * 1, 800);
     setPageWidth(safeWidth);
 
     const resizeHandler = () => {
-      const newSafeWidth = Math.min(window.innerWidth * 0.95, 800);
+      const newSafeWidth = Math.min(window.innerWidth * 1, 800);
       setPageWidth(newSafeWidth);
     };
 
